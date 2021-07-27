@@ -43,8 +43,10 @@ public class TsubuyakiController {
     }
     //ワード検索
     @PostMapping("/search")
-    String searchWord(String searchword){
-        ts.searchWord(searchword);
+    String searchWord(@ModelAttribute("tsubuyakiSearch") TsubuyakiSearch form,Model model){
+        String searchword = form.getSearchword();
+        List<Tsubuyaki> list = ts.searchWord(searchword);
+        model.addAttribute("searchList",list);  //つぶやきワード検索
         return "search_result";
     }
 }
