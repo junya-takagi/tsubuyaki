@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.thymeleaf.org">
+<head>
+    <meat charset="UTF-8">
+    <title>検索結果</title>
+</head>
+<body>
+    <h1>検索結果</h1>
+    <ul>
+        <li th:each="r: ${searchList}">
+            [[${r.comment}]] -- [[${r.name}]] on [[${r.createdAt}]]
+        </li>
+    </ul>
+    <a th:href="@{/read}">戻る</a>
+</body>
+</html>
