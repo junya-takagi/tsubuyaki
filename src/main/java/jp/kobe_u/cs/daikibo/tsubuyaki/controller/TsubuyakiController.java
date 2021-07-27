@@ -41,4 +41,12 @@ public class TsubuyakiController {
         ts.postTsubuyaki(t);
         return "redirect:/read"; //メイン画面に転送
     }
+    //ワード検索
+    @PostMapping("/search")
+    String searchWord(@ModelAttribute("tsubuyakiSearch") TsubuyakiSearch form,Model model){
+        String searchword = form.getSearchword();
+        List<Tsubuyaki> list = ts.searchWord(searchword);
+        model.addAttribute("searchList",list);  //つぶやきワード検索
+        return "search_result";
+    }
 }

@@ -31,4 +31,11 @@ import jp.kobe_u.cs.daikibo.tsubuyaki.repository.TsubuyakiRepository;
         found.forEach(list::add);
         return list;
     }
+    //ワード検索
+    public List<Tsubuyaki> searchWord(String search_word){
+        Iterable<Tsubuyaki> found = repo.findBySearchwordIn(search_word);
+        ArrayList<Tsubuyaki> search_result = new ArrayList<>();
+        found.forEach(search_result::add);
+        return search_result;
+    }
 }
