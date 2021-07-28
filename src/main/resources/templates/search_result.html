@@ -6,11 +6,22 @@
 </head>
 <body>
     <h1>検索結果</h1>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
     <ul>
-        <li th:each="r: ${searchList}">
-            [[${r.comment}]] -- [[${r.name}]] on [[${r.createdAt}]]
+        <li th:each="t: ${searchList}">
+            [[${t.comment}]] -- [[${t.name}]] on [[${t.createdAt}]]
         </li>
     </ul>
+    <h2>
+        <script>
+            const num = d3.selectAll("li").size()
+            if(num==0){
+                document.write("該当つぶやきがありませんでした")
+            }else{
+                d3.select("h2").append("text").text(num+"件の該当つぶやきがありました！")
+            }
+        </script>
+    </h2>
     <a th:href="@{/read}">戻る</a>
 </body>
 </html>

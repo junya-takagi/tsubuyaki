@@ -3,7 +3,7 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
  
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>みんなのつぶやき</title>
  
 </head>
@@ -24,10 +24,10 @@
         <input type="submit" value="つぶやく" />
     </form>
     <h2>検索する</h2>
-    <form th:action="@{/search}" th:object="{tsubuyakiSearch}" method="get">
-        <label for="searchword">キーワード:</label>
-        <input type="text" th:field="*{searchword}" size="15" value=""/>
-        <inpput type="submit" value="検索する" />
+    <form th:action="@{/search}" th:object="${tsubuyakiSearch}" method="get">
+        <label for="search_word">検索ワード：</label>
+        <input type="text" required th:field="*{search_word}" id="serach_word" />
+        <input type="submit" value="検索する" />
     </form>
     <h2>タイトルへ</h2>
     <a th:href="@{/}">戻る</a>

@@ -32,8 +32,8 @@ import jp.kobe_u.cs.daikibo.tsubuyaki.repository.TsubuyakiRepository;
         return list;
     }
     //ワード検索
-    public List<Tsubuyaki> searchWord(String search_word){
-        Iterable<Tsubuyaki> found = repo.findBySearchwordIn(search_word);
+    public List<Tsubuyaki> searchWord(String searchword){
+        Iterable<Tsubuyaki> found = repo.findByCommentContaining(searchword);
         ArrayList<Tsubuyaki> search_result = new ArrayList<>();
         found.forEach(search_result::add);
         return search_result;
